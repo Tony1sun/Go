@@ -16,6 +16,6 @@ func calc(base int) (func(int) int, func(int) int) {
 
 func main() {
 	f1, f2 := calc(10)
-	fmt.Println(f1(1), f2(2))
+	fmt.Println(f1(1), f2(2)) // 11 9
 	fmt.Println(f1(3), f2(4))
 }
