@@ -10,10 +10,9 @@ type dog struct {
 	name string
 }
 
-
 type person struct {
 	name string
-	age int
+	age  int
 }
 
 // 构造函数
@@ -26,7 +25,7 @@ func newDog(name string) dog {
 func newPerson(name string, age int) *person {
 	return &person{
 		name: name,
-		age: age,
+		age:  age,
 	}
 }
 
@@ -37,11 +36,25 @@ func (d dog) wang() {
 }
 
 // 使用值接收者：传拷贝进去
-func (p person) guonian {
+func (p person) guonian() {
 	p.age++
 }
-func main() {
-	d1 := newDog("今天")
-	d1.wang()
-}
 
+// 指针接收者：传内存地址进去
+func (p *person) zhengguonian() {
+	p.age++
+}
+func (p *person) dream() {
+	fmt.Println("躺平")
+}
+func main() {
+	//d1 := newDog("今天")
+	//d1.wang()
+	p1 := newPerson("元帅", 18)
+	fmt.Println(p1.age)
+	p1.guonian()
+	fmt.Println(p1.age)
+	p1.zhengguonian()
+	fmt.Println(p1.age)
+	p1.dream()
+}
