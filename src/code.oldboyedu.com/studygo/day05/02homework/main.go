@@ -1,7 +1,6 @@
 package main
 
 import "fmt"
-import "student_mgr"
 
 // 学生管理系统
 var smr studentMgr //声明一个全局变量：学生管理对象smr
