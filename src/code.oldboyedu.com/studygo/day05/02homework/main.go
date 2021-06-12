@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // 学生管理系统
 var smr studentMgr //声明一个全局变量：学生管理对象smr
@@ -17,20 +20,29 @@ func showMenu() {
 }
 
 func main() {
-	smr = studentMgr{
-		allStudent: make(map[string]student, 100),
+	smr = studentMgr{ //修改全局的那个变量
+		allStudent: make(map[int64]student, 100),
 	}
 	for {
 		showMenu()
 		// 等待用户输入
 		fmt.Print("请输入序号:")
 		var choice int
-		fmt.Scanln()
-		fmt.Println("你输入的是:", choice)
+		fmt.Scanln(&choice)
+		fmt.Printf("你输入的是%d!\n", choice)
 		switch choice {
 		case 1:
-			smr.show
+			smr.showStudent()
+		case 2:
+			smr.addStudent()
+		case 3:
+			smr.editStudent()
+		case 4:
+			smr.deleteStudent()
+		case 5:
+			os.Exit(1)
+		default:
+			fmt.Println("滚")
 		}
-
 	}
 }
