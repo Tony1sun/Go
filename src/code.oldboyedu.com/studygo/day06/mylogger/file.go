@@ -5,21 +5,27 @@ import (
 	"time"
 )
 
-// Logger 日志结构体
-type ConsoleLogger struct {
-	Level LogLevel
+// 往文件里面写日志相关代码
+
+type FileLogger struct {
+	Level       LogLevel
+	filePath    string // 日志文件保存的路径
+	fileName    string // 日志文件名字
+	maxFileSize int64
 }
 
-// Newlog 构造函数
-func NewLog(levelStr string) ConsoleLogger {
-	level, err := parseLogLevel(levelStr)
+// NewFileLogger
+func NewFileLogger(leverStr, fp, fn string, maxSize int64) *FileLogger {
+	loglevel, err := parseLogLevel(leverStr)
 	if err != nil {
 		panic(err)
 	}
-	return ConsoleLogger{
-		Level: level,
+	return &FileLogger{
+		Level:       loglevel,
+		filePath:    fp,
+		fileName:    fn,
+		maxFileSize: maxSize,
 	}
-
 }
 
 func (l ConsoleLogger) enable(logLevel LogLevel) bool {
