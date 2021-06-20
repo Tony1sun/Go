@@ -1,0 +1,124 @@
+[2021-06-20 17:32:35] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:35] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:38] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:38] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:41] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:41] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:44] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:44] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:47] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:47] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:50] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:50] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:53] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:53] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:56] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:56] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:32:59] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:32:59] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:02] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:02] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:05] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:05] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:08] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:08] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:11] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:11] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:14] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:14] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:17] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:17] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 17:33:20] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 17:33:20] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:34] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:34] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:37] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:37] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:40] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:40] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:43] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:43] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:46] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:46] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:49] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:49] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:52] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:52] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:55] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:55] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 18:59:58] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 18:59:58] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:01] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:01] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:04] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:04] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:07] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:07] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:10] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:10] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:13] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:13] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:16] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:16] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:19] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:19] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:22] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:22] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:25] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:25] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:28] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:28] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:31] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:31] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:34] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:34] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:37] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:37] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:40] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:40] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:43] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:43] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:46] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:46] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:49] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:49] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:52] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:52] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:55] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:55] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:00:58] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:00:58] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:01] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:01] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:04] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:04] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:07] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:07] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:10] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:10] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:13] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:13] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:16] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:16] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:19] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:19] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:22] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:22] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:25] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:25] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:28] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:28] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:31] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:31] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:34] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:34] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:37] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:37] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:40] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:40] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:43] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:43] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:46] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:46] [FATAL] [main.go:main.main:19] fatal测试日志
+[2021-06-20 19:01:49] [ERROR] [main.go:main.main:18] error测试日志 id:1,name:tony
+[2021-06-20 19:01:49] [FATAL] [main.go:main.main:19] fatal测试日志
