@@ -61,7 +61,13 @@ func (f *FileLogger) enable(logLevel LogLevel) bool {
 }
 
 func (f *FileLogger) checkSize(file *os.File) bool {
-
+	fileInfo, err := file.Stat()
+	if err != nil {
+		fmt.Printf("get file info failed, err:%v\n", err)
+		return false
+	}
+	// 如果当前文件大小大于等于 日志文件的 最大值
+	return fileInfo.Size() >= f.maxFileSize
 }
 
 func (f *FileLogger) log(lv LogLevel, format string, a ...interface{}) {
