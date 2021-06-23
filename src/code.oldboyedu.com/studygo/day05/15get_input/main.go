@@ -26,4 +26,9 @@ func useBufio() {
 func main() {
 	//useScan()
 	useBufio()
+
+	// 写日志
+	fmt.Fprintln(os.Stdout, "这是 一条日志记录!")
+	fileObj, _ := os.OpenFile("./xxx.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
+	fmt.Fprintln(fileObj, "这是一条日志记录")
 }
