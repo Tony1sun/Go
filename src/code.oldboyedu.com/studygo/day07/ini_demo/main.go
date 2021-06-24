@@ -1,0 +1,27 @@
+package main
+
+// ini配置文件解析器
+
+// MysqlConfig MYSQL配置结构体
+type MYsqlConfig struct {
+	Address  string `ini:"address"`
+	Port     int    `ini:"port"`
+	Username string `ini:"username"`
+	Password string `ini:"password"`
+}
+
+// RedisConfig ...
+type RedisConfig struct {
+	Host     string `ini:"host"`
+	Port     int    `ini:"port"`
+	Password string `ini:"password"`
+	Database int    `ini:"database"`
+}
+
+func loadIni(v interface{}) {
+	//
+}
+
+func main() {
+	//var mc MYsqlConfig
+}
