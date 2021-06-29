@@ -21,7 +21,7 @@ func processConn(conn net.Conn) {
 			return
 		}
 		fmt.Println(string(tmp[:n]))
-		fmt.Print("请回复:")
+		//fmt.Print("请回复:")
 		msg, _ := reader.ReadString('\n') //读到换行
 		msg = strings.TrimSpace(msg)      //有空格换行
 		if msg == "exit" {
@@ -34,7 +34,7 @@ func processConn(conn net.Conn) {
 
 func main() {
 	// 1.本地端口启动服务
-	listener, err := net.Listen("tcp", "127.0.0.1:20000")
+	listener, err := net.Listen("tcp", "127.0.0.1:30000")
 	if err != nil {
 		fmt.Println("start server on 127.0.0.1:20000 failed, err:", err)
 		return
