@@ -1,0 +1,33 @@
+package split_string
+
+import (
+	"reflect"
+	"testing"
+)
+
+func TestSplit(t *testing.T) {
+	ret := Split("bbdbfds", "b")
+	want := []string{"", "", "d", "fds"}
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败了
+		t.Errorf("want:%v but got:%v\n", want, ret)
+	}
+}
+
+
+func Test2Split(t *testing.T) {
+	ret := Split("a:b:c", ":")
+	want := []string{"a", "b", "c"}
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败了
+		t.Errorf("want:%v but got:%v\n", want, ret)
+	}
+}
+
+func Test3Split(t *testing.T) {
+	ret := Split("abcef", "bce")
+	want := []string{"a", "f"}
+	if !reflect.DeepEqual(ret, want) {
+		t.Fatalf("want:%v but got:%v\n", want, ret)
+	}
+}
