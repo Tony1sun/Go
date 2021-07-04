@@ -8,14 +8,14 @@ type ListNode struct {
 }
 
 func reverselList(head *ListNode) *ListNode {
+	// 前一个节点
 	var pre *ListNode
-	cur := head
-	for cur != nil {
-		tmp := cur.Next // 把下一个节点缓存起来
-		cur.Next = pre
-		pre = cur
-		cur = tmp
-		//pre, cur, cur.Next = cur, cur.Next, pre
+	//cur := head
+	for head != nil {
+		cur := head.Next // 当前节点指向下一个节点
+		head.Next = pre  // 将当前节点指向前一个节点
+		pre = head
+		head = cur
 	}
 	return pre
 }
