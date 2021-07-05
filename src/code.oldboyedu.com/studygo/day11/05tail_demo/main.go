@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/hpcloud/tail"
 	"time"
+
+	"github.com/hpcloud/tail"
 )
 
+// 备注啊啊啊啊
 func main() {
 	fileName := "./my.log"
 	config := tail.Config{
