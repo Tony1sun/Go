@@ -7,6 +7,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/go-redis/redis" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/snappy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hpcloud/tail" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jmoiron/sqlx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/nsqio/go-nsq" vcs="Git" />
   </component>
