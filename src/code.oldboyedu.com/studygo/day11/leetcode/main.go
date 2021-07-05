@@ -11,11 +11,10 @@ func reverselList(head *ListNode) *ListNode {
 	var pre *ListNode
 	cur := head
 	for cur != nil {
-		tmp := cur.Next // 把下一个节点缓存起来
+		next := cur.Next // 把下一个节点缓存起来
 		cur.Next = pre
 		pre = cur
-		cur = tmp
-		//pre, cur, cur.Next = cur, cur.Next, pre
+		cur = next
 	}
 	return pre
 }
