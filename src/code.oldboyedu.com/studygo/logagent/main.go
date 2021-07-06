@@ -4,6 +4,7 @@ import (
 	"code.oldboyedu.com/studygo/logagent/kafka"
 	"code.oldboyedu.com/studygo/logagent/taillog"
 	"fmt"
+	"gopkg.in/ini.v1"
 	"time"
 )
 
@@ -23,8 +24,13 @@ func run() {
 }
 
 func main() {
+	// 0.加载配置文件
+	cfg, err := ini.Load("./conf/config.ini")
+	fmt.Println(cfg.Section("kafka").Key("address"))
+	fmt.Println(cfg.Section("kafka").Key("topic"))
+	fmt.Println(cfg.Section("taillog").Key("path"))
 	// 1.初始化kafka连接
-	err := kafka.Init([]string{"127.0.0.1:9092"})
+	err = kafka.Init([]string{"127.0.0.1:9092"})
 	if err != nil {
 		fmt.Printf("init kafka failed, err:%v\n", err)
 		return
