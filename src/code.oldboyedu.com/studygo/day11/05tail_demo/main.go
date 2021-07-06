@@ -33,6 +33,6 @@ func main() {
 			time.Sleep(time.Second)
 			continue
 		}
-		fmt.Println("tail file", line)
+		fmt.Println("tail file", line.Text)
 	}
 }
