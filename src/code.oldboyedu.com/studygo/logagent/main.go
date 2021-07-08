@@ -51,16 +51,15 @@ func main() {
 	fmt.Println("init etcd success")
 	// 2.1 从etcd中获取日志收集项的配置
 	logEntryConf, err := etcd.GetConf(cfg.EtcdConf.Key)
-	// 2.1 派一个哨兵监视日志收集项的变化
 	if err != nil {
 		fmt.Printf("etcd.GetCond failed, err:%v\n", err)
 		return
 	}
 	fmt.Printf("get conf from etcd success, %v\n", logEntryConf)
+	// 2.1 派一个哨兵监视日志收集项的变化
 	for index, value := range logEntryConf {
 		fmt.Printf("index:%v value:%v\n", index, value)
 	}
 	// 3.收集日志发往kafka
 	taillog.Init(logEntryConf)
-
 }
