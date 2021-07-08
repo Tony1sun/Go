@@ -7,6 +7,7 @@ import (
 	"code.oldboyedu.com/studygo/logagent/taillog"
 	"fmt"
 	"gopkg.in/ini.v1"
+	"sync"
 	"time"
 )
 
@@ -57,9 +58,15 @@ func main() {
 	}
 	fmt.Printf("get conf from etcd success, %v\n", logEntryConf)
 	// 2.1 派一个哨兵监视日志收集项的变化
+
 	for index, value := range logEntryConf {
 		fmt.Printf("index:%v value:%v\n", index, value)
 	}
 	// 3.收集日志发往kafka
-	taillog.Init(logEntryConf)
+	taillog.Init(logEntryConf)           // 因为 NewConfChan 访问了tskMgr 的 NewConfChan
+	newConfChan := taillog.NewConfChan() // 从taillog包中获取对外暴露的通道
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go etcd.WatchConf(cfg.EtcdConf.Key, newConfChan) // 哨兵发现最新的配置信息会通知上面的那个通道
+	wg.Wait()
 }
