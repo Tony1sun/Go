@@ -15,6 +15,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.14.5 // indirect
+	github.com/hpcloud/tail v1.0.0
 	go.etcd.io/etcd v3.3.25+incompatible
 	go.uber.org/zap v1.18.1 // indirect
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
@@ -23,5 +24,7 @@ require (
 	golang.org/x/tools v0.1.4 // indirect
 	google.golang.org/grpc v1.26.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
+	gopkg.in/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/ini.v1 v1.62.0
+	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 )

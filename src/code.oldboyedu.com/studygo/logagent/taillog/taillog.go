@@ -1,17 +1,30 @@
 package taillog
 
 import (
+	"code.oldboyedu.com/studygo/logagent/kafka"
 	"fmt"
 	"github.com/hpcloud/tail"
 )
 
 // 专门往kafka写日志的模块
-var (
-	tailObj *tail.Tail
-	LogChan chan string
-)
 
-func Init(filename string) (err error) {
+// 一个日志收集的任务
+type TailTask struct {
+	path     string
+	topic    string
+	instance *tail.Tail
+}
+
+func NewTailTask(path, topic string) (tailObj *TailTask) {
+	tailObj = &TailTask{
+		path:  path,
+		topic: topic,
+	}
+	tailObj.init() // 根据路径去打开对应的日志
+	return
+}
+
+func (t TailTask) init() {
 	config := tail.Config{
 		ReOpen:    true,                                 // 重新打开
 		Follow:    true,                                 // 是否跟随
@@ -19,14 +32,23 @@ func Init(filename string) (err error) {
 		MustExist: false,                                // 文件不存在不报错
 		Poll:      true,
 	}
-	tailObj, err = tail.TailFile(filename, config)
+	var err error
+	t.instance, err = tail.TailFile(t.path, config)
 	if err != nil {
 		fmt.Println("tail file failed, err:", err)
-		return
 	}
-	return
+	go t.run()
 }
 
-func ReadChan() <-chan *tail.Line {
-	return tailObj.Lines
+func (t *TailTask) run() {
+	for {
+		select {
+		case line := <-t.instance.Lines: // 从tailObj通道中一行一行读取日志数据
+			// 3.2发往kafka
+			//kafka.SendToKafka(t.topic, line.Text)
+			// 先把日志数据发到一个通道中
+			kafka.SendToChan(t.topic, line.Text)
+			// kafka 那个包中有单独的goroutine去取日志数据发到kafka
+		}
+	}
 }
