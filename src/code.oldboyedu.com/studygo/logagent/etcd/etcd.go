@@ -59,14 +59,13 @@ func WatchConf(key string, newConfch chan<- []*LogEntry) {
 			// 通知 taillog.tskMgr
 			// 先判断操作的类型
 			var newConf []*LogEntry
-			//if evt.Type == clientv3.EventTypeDelete {
-			//	// 如果是删除操作
-
-			//}
-			err := json.Unmarshal(evt.Kv.Value, &newConf)
-			if err != nil {
-				fmt.Printf("unmarshal failed, err:%v\n", err)
-				continue
+			if evt.Type != clientv3.EventTypeDelete {
+				// 如果是删除操作,手动传递一个空的配置项
+				err := json.Unmarshal(evt.Kv.Value, &newConf)
+				if err != nil {
+					fmt.Printf("unmarshal failed, err:%v\n", err)
+					continue
+				}
 			}
 			fmt.Printf("get new conf:%v\n", newConf)
 			newConfch <- newConf

@@ -5,6 +5,7 @@ import (
 	"code.oldboyedu.com/studygo/logagent/etcd"
 	"code.oldboyedu.com/studygo/logagent/kafka"
 	"code.oldboyedu.com/studygo/logagent/taillog"
+	"code.oldboyedu.com/studygo/logagent/utils"
 	"fmt"
 	"gopkg.in/ini.v1"
 	"sync"
@@ -15,19 +16,6 @@ import (
 var (
 	cfg = new(conf.AppConf)
 )
-
-//func run() {
-//	// 1.读取日志
-//	for {
-//		select {
-//		case line := <- taillog.ReadChan():
-//			// 2.发送到kafka
-//			kafka.SendToKafka(cfg.KafkaConf.Topic, line.Text)
-//		default:
-//			time.Sleep(time.Second)
-//		}
-//	}
-//}
 
 func main() {
 	// 0.加载配置文件
@@ -50,8 +38,14 @@ func main() {
 		return
 	}
 	fmt.Println("init etcd success")
+	// 为了实现每个logagentagent都拉去自己的独有配置，所以要以自己的IP地址作为区分
+	ipStr, err := utils.GetOutboundIP()
+	if err != nil {
+		panic(err)
+	}
+	etcdConfkey := fmt.Sprintf(cfg.EtcdConf.Key, ipStr)
 	// 2.1 从etcd中获取日志收集项的配置
-	logEntryConf, err := etcd.GetConf(cfg.EtcdConf.Key)
+	logEntryConf, err := etcd.GetConf(etcdConfkey)
 	if err != nil {
 		fmt.Printf("etcd.GetCond failed, err:%v\n", err)
 		return
@@ -67,6 +61,6 @@ func main() {
 	newConfChan := taillog.NewConfChan() // 从taillog包中获取对外暴露的通道
 	var wg sync.WaitGroup
 	wg.Add(1)
-	go etcd.WatchConf(cfg.EtcdConf.Key, newConfChan) // 哨兵发现最新的配置信息会通知上面的那个通道
+	go etcd.WatchConf(etcdConfkey, newConfChan) // 哨兵发现最新的配置信息会通知上面的那个通道
 	wg.Wait()
 }
