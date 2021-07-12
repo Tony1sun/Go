@@ -24,7 +24,7 @@ func main() {
 	fmt.Printf("cfg:%v\n", cfg)
 	// 1.初始化ES
 	// 1.1初始化一个ES连接的client
-	err = es.Init(cfg.EsCfg.Address)
+	err = es.Init(cfg.EsCfg.Address, cfg.EsCfg.ChanSize, cfg.EsCfg.Nums)
 	if err != nil {
 		fmt.Printf("init ES client failed, err:%v\n", err)
 		return

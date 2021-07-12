@@ -7,9 +7,6 @@ import (
 )
 
 // 初始化kafka消费者 从kafka取数据
-type LogData struct {
-	data string `json:"data"`
-}
 
 // Init初始化client
 func Init(addrs []string, topic string) (err error) {
@@ -37,14 +34,12 @@ func Init(addrs []string, topic string) (err error) {
 			for msg := range pc.Messages() {
 				fmt.Printf("Partition:%d Offset:%d Key:%v Value:%v\n", msg.Partition, msg.Offset, msg.Key, string(msg.Value))
 				// 直接发给ES
-				ld := map[string]interface{}{
-					"data": string(msg.Value),
-				}
 				if err != nil {
 					fmt.Printf("unmarshal failed, err:%v\n", err)
 					continue
 				}
-				es.SendToEs(topic, ld)
+				ld := es.LogData{Topic: topic, Data: string(msg.Value)}
+				es.SendToEsChan(&ld)
 			}
 		}(pc)
 	}

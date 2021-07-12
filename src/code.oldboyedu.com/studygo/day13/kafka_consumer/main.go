@@ -28,7 +28,7 @@ func main() {
 		}
 		defer pc.AsyncClose()
 		// 异步从每个分区消费信息
-		go func(partitionConsumer sarama.PartitionConsumer) {
+		go func(sarama.PartitionConsumer) {
 			for msg := range pc.Messages() {
 				fmt.Printf("Partition:%d Offset:%d Key:%v Value:%v", msg.Partition, msg.Offset, msg.Key, string(msg.Value))
 			}
