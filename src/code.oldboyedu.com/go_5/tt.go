@@ -15,6 +15,7 @@ func main() {
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "hello World!")
 	})
+	r.POST()
 	// 3.监听端口，默认再8080
 	r.Run(":8000")
 }
