@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"time"
+	"net/http"
 )
 
 // 定义中间件
@@ -22,32 +21,35 @@ import (
 //	}
 //}
 
-func myTime(c *gin.Context) {
-	start := time.Now()
-	c.Next()
-	since := time.Since(start)
-	fmt.Println("程序用时:", since)
+func AuthMiddleWare() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// 获取客户端cookie并校验
+		if cookie, err := c.Cookie("abc"); err == nil {
+			if cookie == "123" {
+				c.Next()
+				return
+			}
+		}
+		//  返回错误
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "err"})
+		// 若验证不通过，不再调用后续的函数处理
+		c.Abort()
+		return
+	}
 }
 
 func main() {
 	// 1.创建路由
 	r := gin.Default()
-	// 注册中间件
-	//r.Use(myTime)
-	shoppingGroup := r.Group("/shopping")
-	shoppingGroup.Use(myTime)
-	{
-		shoppingGroup.GET("/index", shopIndexHandler)
-		shoppingGroup.GET("/home", shopHomeHandler)
-	}
-
+	r.GET("/login", func(c *gin.Context) {
+		// 设置cookie
+		c.SetCookie("abc", "123", 60, "/",
+			"localhost", false, true)
+		// 返回信息
+		c.String(200, "Login success!")
+	})
+	r.GET("/home", AuthMiddleWare(), func(c *gin.Context) {
+		c.JSON(200, gin.H{"data": "home"})
+	})
 	r.Run(":8000")
-}
-
-func shopIndexHandler(c *gin.Context) {
-	time.Sleep(5 * time.Second)
-}
-
-func shopHomeHandler(c *gin.Context) {
-	time.Sleep(3 * time.Second)
 }
