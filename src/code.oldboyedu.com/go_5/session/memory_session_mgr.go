@@ -34,12 +34,12 @@ func (s *MemorySessionMgr) Init(addr string, options ...string) (err error) {
 // 创建session
 func (s *MemorySessionMgr) CreatSession() (session Session, err error) {
 	s.rwlock.Lock()
-	defer s.rwlock.Lock()
+	defer s.rwlock.Unlock()
 	// 用uuid作为sessionId
-	id, err := uuid.NewV4()
-	if err != nil {
-		return
-	}
+	id := uuid.NewV4()
+	//if err != nil {
+	//	return
+	//}
 	// 转string
 	sessionId := id.String()
 	// 创建个session
