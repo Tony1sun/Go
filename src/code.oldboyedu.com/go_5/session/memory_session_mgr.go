@@ -1,6 +1,7 @@
 package session
 
 import (
+	"errors"
 	uuid "github.com/satori/go.uuid"
 	"sync"
 )
@@ -30,9 +31,11 @@ func (s *MemorySessionMgr) Init(addr string, options ...string) (err error) {
 	return
 }
 
+// 创建session
 func (s *MemorySessionMgr) CreatSession() (session Session, err error) {
 	s.rwlock.Lock()
 	defer s.rwlock.Lock()
+	// 用uuid作为sessionId
 	id, err := uuid.NewV4()
 	if err != nil {
 		return
@@ -40,10 +43,19 @@ func (s *MemorySessionMgr) CreatSession() (session Session, err error) {
 	// 转string
 	sessionId := id.String()
 	// 创建个session
-	memorySession := NewMemorySession(sessionId)
+	session = NewMemorySession(sessionId)
+	// 加入到大map
+	s.SessionMap[sessionId] = session
 	return
 }
 
-func (s *MemorySessionMgr) Get() (session Session, err error) {
-
+func (s *MemorySessionMgr) Get(sessionId string) (session Session, err error) {
+	s.rwlock.Lock()
+	defer s.rwlock.Unlock()
+	session, ok := s.SessionMap[sessionId]
+	if !ok {
+		err = errors.New("session not exists")
+		return
+	}
+	return
 }
