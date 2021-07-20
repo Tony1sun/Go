@@ -35,7 +35,7 @@ const (
 	SessionFlagModify
 )
 
-func NetRedisSession(id string, pool *redis.Pool) *RedisSession {
+func NewRedisSession(id string, pool *redis.Pool) *RedisSession {
 	s := &RedisSession{
 		sessionMap: make(map[string]interface{}, 16),
 		pool:       pool,

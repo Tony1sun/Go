@@ -1,6 +1,7 @@
 package session
 
 import (
+	"errors"
 	"github.com/garyburd/redigo/redis"
 	uuid "github.com/satori/go.uuid"
 	"sync"
@@ -62,7 +63,7 @@ func myPool(addr, password string) *redis.Pool {
 			}
 			return conn, err
 		},
-		// 连接测试
+		// 连接测试，开发时使用
 		TestOnBorrow: func(conn redis.Conn, t time.Time) error {
 			_, err := conn.Do("PING")
 			return err
@@ -81,7 +82,7 @@ func (r *RedisSessionMgr) CreateSession() (session Session, err error) {
 	// 转string
 	sessionId := id.String()
 	// 创建个session
-	session = NetRedisSession(sessionId, r.pool)
+	session = NewRedisSession(sessionId, r.pool)
 	// 加入到大map
 	r.sessionMap[sessionId] = session
 	return
