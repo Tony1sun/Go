@@ -39,3 +39,22 @@ func GetAricleList(pageNum, pageSize int) (articleList []*model.ArticleInfo, err
 	err = DB.Select(&articleList, sqlstr, pageNum, pageSize)
 	return
 }
+
+// 根据文章id，查询单个文章
+func GetarticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err error) {
+	if articleId < 0 {
+		return
+	}
+	sqlstr := `select
+                    id,summary,title,view_count,create_time,comment_count,username,category_id
+               from
+                   article
+               where
+                    id = ?
+               and status = 1
+              `
+	err = DB.Get(articleDetail, sqlstr, articleId)
+	return
+}
+
+// 根据分类id，查询这一类的文章
