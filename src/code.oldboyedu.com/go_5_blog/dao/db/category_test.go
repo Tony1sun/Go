@@ -14,7 +14,7 @@ func init() {
 
 // 获取单个分类信息
 func TestGetCategoryById(t *testing.T) {
-	category, err := GetCategoryById(1)
+	category, err := GetCategoryById(2)
 	if err != nil {
 		panic(err)
 	}
