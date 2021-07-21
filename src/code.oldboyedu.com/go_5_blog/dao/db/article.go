@@ -12,7 +12,7 @@ func InsertArticle(article *model.ArticleDetail) (articleId int64, err error) {
 		return
 	}
 	sqlstr := `insert into
-               article(content,summart,title,username,category_id,view_count,comment_count) values(?,?,?,?,?,?,?)`
+               article(content,summary,title,username,category_id,view_count,comment_count) values(?,?,?,?,?,?,?)`
 	result, err := DB.Exec(sqlstr, article.Content, article.Summary, article.Title, article.Username, article.ArticleInfo.CategoryId,
 		article.ArticleInfo.ViewCount, article.ArticleInfo.CommentCount)
 	if err != nil {
@@ -33,7 +33,7 @@ func GetAricleList(pageNum, pageSize int) (articleList []*model.ArticleInfo, err
                from
                     article
                where
-                    status=1
+                    status = 1
                order by create_time desc
                limit ?,?`
 	err = DB.Select(&articleList, sqlstr, pageNum, pageSize)
@@ -46,7 +46,7 @@ func GetarticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err 
 		return
 	}
 	sqlstr := `select
-                    id,summary,title,view_count,create_time,comment_count,username,category_id
+                    id,summary,title,view_count,content,create_time,comment_count,username,category_id
                from
                    article
                where
@@ -58,3 +58,20 @@ func GetarticleDetail(articleId int64) (articleDetail *model.ArticleDetail, err 
 }
 
 // 根据分类id，查询这一类的文章
+func GetArticleListByCategoryId(categoryId, pageNum, pageSize int) (articleList []*model.ArticleInfo, err error) {
+	if pageNum < 0 || pageSize <= 0 {
+		return
+	}
+	sqlstr := `select
+                    id,summary,title,view_count,create_time,comment_count,username,category_id
+               from
+                    article
+               where
+                    status=1
+               and
+                    category_id = ?
+               order by create_time desc
+               limit ?,?`
+	err = DB.Select(&articleList, sqlstr, categoryId, pageNum, pageSize)
+	return
+}

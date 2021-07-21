@@ -5,7 +5,7 @@ import "testing"
 func init() {
 	// parseTime=true 将mysql中的时间类型，自动解析为go结构体中的时间类型
 	// 不加报错
-	dns := "root:root@tcp(127.0.0.1:3306)/test?parseTime=true"
+	dns := "root:123456@tcp(127.0.0.1:3306)/test?parseTime=true"
 	err := Init(dns)
 	if err != nil {
 		panic(err)
@@ -34,7 +34,7 @@ func TestGetCategoryList(t *testing.T) {
 }
 
 func TestGetCategoryAll(t *testing.T) {
-	categoryList, err := GetCategoryAll()
+	categoryList, err := GetAllCategoryList()
 	if err != nil {
 		panic(err)
 	}

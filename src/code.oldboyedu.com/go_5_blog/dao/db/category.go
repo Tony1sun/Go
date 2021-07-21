@@ -36,7 +36,7 @@ func GetCategoryList(categoryIds []int64) (categoryList []*model.Category, err e
 }
 
 // 获取所有分类
-func GetCategoryAll() (categoryList []*model.Category, err error) {
+func GetAllCategoryList() (categoryList []*model.Category, err error) {
 	sqlstr := "select id,category_name,category_no from category order by category_no asc"
 	err = DB.Select(&categoryList, sqlstr)
 	return
