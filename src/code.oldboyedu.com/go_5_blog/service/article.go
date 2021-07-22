@@ -16,8 +16,8 @@ func GetArticleRecordList(pageNum, pageSize int) (articleRecordList []*model.Art
 		return
 	}
 	// 获取文章对应的分类(多个)
-	cateforyIds := getCategoryIds(articleInfoList)
-	categoryList, err := db.GetCategoryList(cateforyIds)
+	categoryIds := getCategoryIds(articleInfoList)
+	categoryList, err := db.GetCategoryList(categoryIds)
 	if err != nil {
 		return
 	}
@@ -44,6 +44,7 @@ func GetArticleRecordList(pageNum, pageSize int) (articleRecordList []*model.Art
 
 // 根据多个文章的id,获取多个分类id的集合
 func getCategoryIds(articleInfoList []*model.ArticleInfo) (ids []int64) {
+LABEL:
 	// 遍历文章，得到每个文章
 	for _, article := range articleInfoList {
 		// 从当前文章取出分类id
@@ -51,10 +52,48 @@ func getCategoryIds(articleInfoList []*model.ArticleInfo) (ids []int64) {
 		// 去重相同的分类id
 		for _, id := range ids {
 			// 看当前id是否存在
-			if id != categoryId {
-				ids = append(ids, categoryId)
+			if id == categoryId {
+				continue LABEL
 			}
 		}
+		ids = append(ids, categoryId)
+	}
+	return
+}
+
+// 根据分类Id，获取该类文章和他们对应的分类信息
+func GetArticleRecordListById(categoryId, pageNum, pageSize int) (articleRecordList []*model.ArticleRecord, err error) {
+	// 获取文章列表
+	articleInfoList, err := db.GetArticleListByCategoryId(categoryId, pageNum, pageSize)
+	if err != nil {
+		return
+	}
+	if len(articleInfoList) <= 0 {
+		return
+	}
+	// 获取文章对应的分类(多个)
+	cateforyIds := getCategoryIds(articleInfoList)
+	categoryList, err := db.GetCategoryList(cateforyIds)
+	if err != nil {
+		return
+	}
+	// 返回页面，做聚合
+	// 遍历所有文章
+	for _, article := range articleInfoList {
+		// 根据当前文章，生成结构体
+		articleRecord := &model.ArticleRecord{
+			ArticleInfo: *article,
+		}
+		// 文章取出分类id
+		categoryId := article.CategoryId
+		// 遍历分类列表
+		for _, category := range categoryList {
+			if categoryId == category.CategoryId {
+				articleRecord.Category = *category
+				break
+			}
+		}
+		articleRecordList = append(articleRecordList, articleRecord)
 	}
 	return
 }
