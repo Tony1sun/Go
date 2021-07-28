@@ -12,9 +12,7 @@ message InfoReponse{
 
 // 接口
 service Hello {
-    rpc Info (InfoRequest) returns (InfoReponse){
-
-    }
+    rpc Info (InfoRequest) returns (InfoReponse){}
 }
 
 

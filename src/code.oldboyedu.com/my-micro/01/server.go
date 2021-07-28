@@ -21,7 +21,7 @@ func main() {
 		// 设置微服务的名，用来访问
 		// micro call hello Hello.Info {\"username\":\"zhangsan\"}
 		micro.Name("hello"),
-		micro.Metadata(map[string]string{"protocol": "http"}),
+		//micro.Metadata(map[string]string{"protocol": "http"}),
 	)
 	// 2.初始化
 	service.Init()
